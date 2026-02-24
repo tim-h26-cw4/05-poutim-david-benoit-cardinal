@@ -19,9 +19,13 @@ export default class Poutine {
       button.classList.remove('is-active');
       event.currentTarget.classList.add('is-active');
       this.selectedType = event.currentTarget.innerText;
-      updtePhoto();
+      this.updatePhoto();
     }
   }
 
-  updatePhoto() {}
+  updatePhoto() {
+    const image = this.element.querySelector('.poutine__image');
+    image.classList.add('is-active');
+    image.src = `assets/images/${this.selectedType}.png`;
+  }
 }
