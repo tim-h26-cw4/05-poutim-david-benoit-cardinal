@@ -9,10 +9,10 @@ class Main {
   init() {
     Icons.load();
 
-    const buttons = document.querySelectorAll('.button');
-    for (let i = 0; i < buttons.length; i++) {
-      const button = buttons[i];
-      new Chef();
+    const chefs = document.querySelectorAll('.chef');
+    for (let i = 0; i < chefs.length; i++) {
+      const chef = chefs[i];
+      new Chef(chef);
     }
   }
 }

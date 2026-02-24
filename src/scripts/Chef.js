@@ -1,9 +1,23 @@
+import Poutine from './Poutine.js';
+
 export default class Chef {
-  constructor() {
+  constructor(element) {
+    this.element = element;
+    this.menu = [];
+    this.container = this.element.querySelector('.chef__order');
     this.init();
   }
 
   init() {
-    console.log('Ya hooo!');
+    const poutines = this.element.querySelectorAll('.poutine');
+    const button = this.element.querySelector('.button-secondary');
+    for (let i = 0; i < poutines.length; i++) {
+      const poutine = poutines[i];
+      const instance = new Poutine(poutine);
+      this.menu.push(instance);
+      button.addEventListener('click', this.sendOrder.bind(this));
+    }
   }
+
+  sendOrder() {}
 }
