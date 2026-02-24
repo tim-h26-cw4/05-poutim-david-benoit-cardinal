@@ -1,7 +1,27 @@
 export default class Poutine {
-  constructor() {
+  constructor(element) {
+    this.element = element;
+    this.types = this.element.querySelectorAll('.button');
+    this.selectedType = '';
     this.init();
   }
 
-  init() {}
+  init() {
+    for (let i = 0; i < this.types.length; i++) {
+      const button = this.types[i];
+      button.addEventListener('click', this.selectType.bind(this));
+    }
+  }
+
+  selectType(event) {
+    for (let i = 0; i < this.types.length; i++) {
+      const button = this.types[i];
+      button.classList.remove('is-active');
+      event.currentTarget.classList.add('is-active');
+      this.selectedType = event.currentTarget.innerText;
+      updtePhoto();
+    }
+  }
+
+  updatePhoto() {}
 }
